@@ -1,0 +1,29 @@
+{
+  "name": "scheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlavan1/Scheduler.git"
+  },
+  "author": "Jamail LaVan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlavan1/Scheduler/issues"
+  },
+  "homepage": "https://github.com/jlavan1/Scheduler#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mustache": "^4.0.0",
+    "mustache-express": "^1.3.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "pg": "^7.17.1",
+    "postgres": "^1.0.1",
+    "sequelize": "^5.21.3"
+  }
+}

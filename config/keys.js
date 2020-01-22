@@ -1,10 +1,11 @@
-// add this file to .gitigore
+// add this file to .gitignore
+require('dotenv').config()
 
 module.exports = {
 
     google:{
-        clentID: "811522982366-7ipqhq7q80cfimj72lmmnijji16hssjc.apps.googleusercontent.com",
-        clientSecret: "ikwVU5PR0mxaZbAYwiQM0qMa"
+        clientID: "811522982366-7ipqhq7q80cfimj72lmmnijji16hssjc.apps.googleusercontent.com",
+        clientSecret: 
     }
 
 };

@@ -4,8 +4,8 @@ require('dotenv').config()
 module.exports = {
 
     google:{
-        clientID: "811522982366-7ipqhq7q80cfimj72lmmnijji16hssjc.apps.googleusercontent.com",
-        clientSecret: 
+        clientID: process.env.GOOGLE_CLIENTID,
+        clientSecret: process.env.GOOGLE_SECRET
     }
 
 };

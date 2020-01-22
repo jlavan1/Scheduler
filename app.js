@@ -5,9 +5,14 @@ const app = express()
 const bodyParser = require("body-parser")
 const mustacheExpress = require("mustache-express")
 const engine = mustacheExpress()
+const path = require('path')
+const VIEWS_PATH = path.join(__dirname, '/public')
+const passport = require('passport')
+const passportSetup = require('./config/passport-setup')
 
 //DB Connection
-require('/database/connection.js');
+//ElephantSQL
+
 /*const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:'); */
 /* require('dotenv').config(); 
@@ -120,21 +125,15 @@ app.listen(process.env.PORT, function () {
 }) */
 
 // Register '.mustache' extension with The Mustache Express
-app.engine("mustache", mustacheExpress())
+app.engine("mustache", mustacheExpress(VIEWS_PATH + '/partials', '.mustache'))
 
 app.set("view engine", "mustache")
-app.set("views", __dirname + "/public")
+app.set("views", VIEWS_PATH)
 
 app.use("/css", express.static(__dirname + "/css"))
 
-try {
-    sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
 
-  sequelize.close()
+  // sequelize.close()
 
 app.get("/", (req, res) => {
   res.render("index")
@@ -151,6 +150,14 @@ app.get("/register", (req, res) => {
 app.get("/index", (req, res) => {
     res.render("index")
   })
+
+  app.get("/Appointments", (req, res) => {
+    res.render("Appointments")
+  })
+
+  app.get("/google", passport.authenticate('google', {
+    scope: ['profile']
+  }));
 
 app.listen(3000, function() {
   console.log("Server is runniing on 3000")

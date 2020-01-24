@@ -159,6 +159,10 @@ app.get("/index", (req, res) => {
     scope: ['profile']
   }));
 
+  app.get("/auth/google/redirect", passport.authenticate('google'),(req,res) => {
+    res.send("You reached the callback URI")
+  })
+
 app.listen(3000, function() {
   console.log("Server is runniing on 3000")
 })

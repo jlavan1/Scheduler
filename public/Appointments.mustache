@@ -4,6 +4,8 @@
 
     {{> header}}
 
+    <link rel="stylesheet" href="/css/table.css"> 
+
     </head>
     
     {{> menu}}
@@ -16,17 +18,29 @@
 
 <table class="tftable" border="1">
 <tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr>
-<tr><td>Row:1 Cell:1</td><td>Row:1 Cell:2</td><td>Row:1 Cell:3</td><td>Row:1 Cell:4</td><td>Row:1 Cell:5</td><td>Row:1 Cell:6</td><td>Row:1 Cell:7</td></tr>
-<tr><td>Row:2 Cell:1</td><td>Row:2 Cell:2</td><td>Row:2 Cell:3</td><td>Row:2 Cell:4</td><td>Row:2 Cell:5</td><td>Row:2 Cell:6</td><td>Row:2 Cell:7</td></tr>
-<tr><td>Row:3 Cell:1</td><td>Row:3 Cell:2</td><td>Row:3 Cell:3</td><td>Row:3 Cell:4</td><td>Row:3 Cell:5</td><td>Row:3 Cell:6</td><td>Row:3 Cell:7</td></tr>
-<tr><td>Row:3 Cell:1</td><td>Row:3 Cell:2</td><td>Row:3 Cell:3</td><td>Row:3 Cell:4</td><td>Row:3 Cell:5</td><td>Row:3 Cell:6</td><td>Row:3 Cell:7</td></tr></table>
+<tr><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td></tr>
+<tr><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td></tr>
+<tr><td> SLEEP</td><td> SLEEP</td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td></tr>
+<tr><td> SLEEP</td><td>SLEEP </td><td>SLEEP </td><td>SLEEP </td><td> SLEEP</td><td>SLEEP </td><td>SLEEP </td></tr></table>
 
+<div class='Date-Form'>
+<form method="get" id="form1">
+  Task:<br>
+  <input type="text" name="Task"><br>
+  Day:<br>
+  <input type="text" name="Day">
+  Block and Time:<br>
+  <input type="text" name="Time">
+</form>
+
+<button type="submit" form="form1" value="Submit">Submit</button>
+</div>
 
 
       
     <footer>
         <div id="footer">
-            <p>This is my Footer</p>
+            
 
         </div>
     </footer>

@@ -9,6 +9,18 @@ const path = require('path')
 const VIEWS_PATH = path.join(__dirname, '/public')
 const passport = require('passport')
 const passportSetup = require('./config/passport-setup')
+const session = require('express-session')
+
+app.use(session({
+  secret: "cats", 
+  resave: false, 
+  saveUninitialized: true
+}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //DB Connection
 //ElephantSQL
@@ -159,8 +171,13 @@ app.get("/index", (req, res) => {
     scope: ['profile']
   }));
 
+  app.get("/profile", (req, res) => {
+    res.render("Appointments")
+  })
+
   app.get("/auth/google/redirect", passport.authenticate('google'),(req,res) => {
-    res.send("You reached the callback URI")
+    console.log("Im to redirect to profile")
+    res.redirect('/profile')
   })
 
 app.listen(3000, function() {

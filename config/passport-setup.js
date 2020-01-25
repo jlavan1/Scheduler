@@ -2,6 +2,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20");
 const keys = require('./keys');
 const models = require('../models');
+const LocalStrategy = require('passport-local').Strategy;
 
 
 passport.serializeUser((user, done) => {
@@ -56,3 +57,24 @@ passport.use(new GoogleStrategy({
 
     })
 }))
+
+passport.use(new LocalStrategy(
+    function (username, password, done) {
+      models.user.findOne({
+        where: {
+          username: username
+        }
+      }).then(function (user) {
+        if (!user) {
+          return done(null, false);
+        }
+  
+        if (user.password != encryptionPassword(password)) {
+          return done(null, false);
+        }
+        return done(null, user);
+      }).catch(function (err) {
+        return done(err);
+      });
+    }
+  ));
